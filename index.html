@@ -1,20 +1,16 @@
-```html
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Karthik's Webpage</title>
 
     <style>
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
             font-family: Arial, sans-serif;
         }
 
         body {
+            margin: 0;
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -23,49 +19,43 @@
         }
 
         .login-box {
-            width: 350px;
-            padding: 35px;
-            background: white;
+            width: 500px;
+            padding: 60px;
             border: 1px solid #ddd;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.10);
         }
 
         h2 {
             text-align: center;
-            margin-bottom: 25px;
             color: #333;
+            margin-bottom: 35px;
         }
 
         label {
             display: block;
-            margin-bottom: 7px;
+            margin-bottom: 8px;
             font-weight: bold;
             color: #444;
         }
 
         input {
             width: 100%;
-            padding: 12px;
-            margin-bottom: 18px;
+            padding: 15px;
+            margin-bottom: 22px;
             border: 1px solid #ccc;
-            border-radius: 7px;
-            font-size: 15px;
-        }
-
-        input:focus {
-            outline: none;
-            border-color: #555;
+            border-radius: 8px;
+            font-size: 16px;
         }
 
         button {
             width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 7px;
+            padding: 15px;
             background: #333;
             color: white;
-            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
             font-weight: bold;
             cursor: pointer;
         }
@@ -75,24 +65,24 @@
         }
 
         #error {
+            display: none;
             color: red;
             text-align: center;
             margin-top: 15px;
-            display: none;
         }
 
         #welcomePage {
             display: none;
             text-align: center;
-            color: #333;
         }
 
         #welcomePage h1 {
+            color: #333;
             font-size: 40px;
-            margin-bottom: 15px;
         }
 
         #welcomePage p {
+            color: #555;
             font-size: 22px;
         }
     </style>
@@ -100,28 +90,24 @@
 
 <body>
 
-    <!-- LOGIN PAGE -->
+    <!-- Login -->
     <div class="login-box" id="loginBox">
 
         <h2>Login</h2>
 
         <form onsubmit="login(event)">
 
-            <label for="email">Mail ID</label>
-            <input
-                type="text"
-                id="email"
-                placeholder="Enter mail ID"
-                required
-            >
+            <label>Mail ID</label>
+            <input type="text"
+                   id="email"
+                   placeholder="Enter mail ID"
+                   required>
 
-            <label for="password">Password</label>
-            <input
-                type="password"
-                id="password"
-                placeholder="Enter password"
-                required
-            >
+            <label>Password</label>
+            <input type="password"
+                   id="password"
+                   placeholder="Enter password"
+                   required>
 
             <button type="submit">Login</button>
 
@@ -131,45 +117,41 @@
 
     </div>
 
-    <!-- WELCOME PAGE -->
+    <!-- Welcome -->
     <div id="welcomePage">
 
         <h1>Hi Karthik! 👋</h1>
+
         <p>Welcome to my webpage</p>
 
     </div>
 
     <script>
+
         function login(event) {
 
             event.preventDefault();
 
-            const email = document.getElementById("email").value.trim();
-            const password = document.getElementById("password").value;
-            const error = document.getElementById("error");
+            let email = document.getElementById("email").value.trim();
+            let password = document.getElementById("password").value;
+            let error = document.getElementById("error");
 
-            // Correct login details
             if (email === "karthik@2000" && password === "1234") {
 
-                // Hide error
-                error.style.display = "none";
-
-                // Hide login box
                 document.getElementById("loginBox").style.display = "none";
 
-                // Show welcome page
                 document.getElementById("welcomePage").style.display = "block";
+
+                error.style.display = "none";
 
             } else {
 
-                // Show error
                 error.style.display = "block";
 
             }
         }
+
     </script>
 
 </body>
 </html>
-```
-
